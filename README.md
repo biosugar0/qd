@@ -1,6 +1,6 @@
 # qd
 
-Take Daily Notes Easily
+Take Obsidian Daily Notes Easily
 
 
 ## Usage

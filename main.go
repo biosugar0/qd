@@ -94,26 +94,34 @@ func run(c *cli.Context) error {
 	after := now.AddDate(0, 0, 1).Format(dateLayout)
 
 	file := filepath.Join(cfg.DailyNoteDir, dailyNoteName)
+	var title string
+	if c.Args().Present() {
+		title = c.Args().First()
+	}
+
+	nowString := now.Format("15:04")
 
 	if fileExists(file) {
-		var title string
-		if c.Args().Present() {
-			title = c.Args().First()
+		f, err := os.OpenFile(file, os.O_WRONLY|os.O_APPEND, 0666)
+		if err != nil {
+			return err
 		}
-
 		if len(title) > 0 {
-			f, err := os.OpenFile(file, os.O_WRONLY|os.O_APPEND, 0666)
-			if err != nil {
-				return err
-			}
-			fmt.Fprintf(f, "### %s %s\n", now.Format("15:04"), title)
+			fmt.Fprintf(f, "\n### %s %s\n", nowString, title)
+			f.Close()
+		} else {
+			fmt.Fprintf(f, "\n### %s\n", nowString)
 			f.Close()
 		}
-
 		return openEditor(cfg.Editor, file)
 	}
 
-	tmplString := templateDailyNoteContent
+	var tmplString string
+	if len(title) > 0 {
+		tmplString = fmt.Sprintf("\n%s\n### %s %s\n", templateDailyNoteContent, nowString, title)
+	} else {
+		tmplString = fmt.Sprintf("\n%s\n### %s\n", templateDailyNoteContent, nowString)
+	}
 
 	t := template.Must(template.New("qd").Parse(tmplString))
 	f, err := os.Create(file)

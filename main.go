@@ -118,9 +118,9 @@ func run(c *cli.Context) error {
 
 	var tmplString string
 	if len(title) > 0 {
-		tmplString = fmt.Sprintf("\n%s\n### %s %s\n", templateDailyNoteContent, nowString, title)
+		tmplString = fmt.Sprintf("%s\n### %s %s\n", templateDailyNoteContent, nowString, title)
 	} else {
-		tmplString = fmt.Sprintf("\n%s\n### %s\n", templateDailyNoteContent, nowString)
+		tmplString = fmt.Sprintf("%s\n### %s\n", templateDailyNoteContent, nowString)
 	}
 
 	t := template.Must(template.New("qd").Parse(tmplString))

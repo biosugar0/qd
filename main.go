@@ -17,8 +17,7 @@ const (
 	helpName                 = "Quick Daily Notes"
 	version                  = "0.0.1"
 	usage                    = "qd [section title]"
-	templateDailyNoteContent = `
-[[daily notes]]
+	templateDailyNoteContent = `[[daily notes]]
 
 [[{{.Before}}]] | [[{{.After}}]]
 `

@@ -1,4 +1,4 @@
 [tagpr]
 	vPrefix = true
 	releaseBranch = main
-	versionFile = version.go,README .md
+	versionFile = version.go,README.md

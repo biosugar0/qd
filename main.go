@@ -15,7 +15,6 @@ import (
 const (
 	name                     = "qd"
 	helpName                 = "Quick Daily Notes"
-	version                  = "0.0.2"
 	usage                    = "qd [section title]"
 	templateDailyNoteContent = `[[daily notes]]
 

@@ -1,4 +1,4 @@
-name: tag generate for deploy
+name: tag generate for release
 on:
   push:
     branches:

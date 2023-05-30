@@ -3,7 +3,7 @@ module github.com/biosugar0/qd
 go 1.19
 
 require (
-	github.com/BurntSushi/toml v1.2.1
+	github.com/BurntSushi/toml v1.3.0
 	github.com/urfave/cli/v2 v2.25.4
 	gotest.tools/v3 v3.4.0
 )

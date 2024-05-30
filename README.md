@@ -13,7 +13,7 @@ USAGE:
    qd [section title]
 
 VERSION:
-   0.0.15
+   0.0.16
 
 COMMANDS:
    help, h  Shows a list of commands or help for one command
